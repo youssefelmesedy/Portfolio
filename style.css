@@ -626,13 +626,14 @@ footer a:hover { color: var(--primary-color); }
     }
 }
 
-/* ================== FOLLOW ME ICONS MOBILE ================== */
 @media (max-width: 576px) {
     .d-flex.gap-3 {
-        flex-direction: row;      /* خليه أفقي */
-        align-items: center;      /* يحطهم في الوسط عموديًا */
-        justify-content: center;  /* يحطهم في الوسط أفقيًا */
-        gap: 0.5rem;              /* مسافة مناسبة بينهم */
+        flex-direction: row !important;      /* أجبرها أفقي */
+        align-items: center !important;      /* محاذاة عمودية */
+        justify-content: center !important;  /* محاذاة أفقية */
+        flex-wrap: wrap;                      /* يسمح بالانتقال للسطر التالي إذا ضاقت الشاشة */
+        gap: 0.5rem !important;               /* مسافة مناسبة */
     }
 }
+
 
