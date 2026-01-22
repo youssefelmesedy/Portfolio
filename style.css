@@ -628,9 +628,11 @@ footer a:hover { color: var(--primary-color); }
 
 /* ================== FOLLOW ME ICONS MOBILE ================== */
 @media (max-width: 576px) {
-    .d-flex.gap-3.follow-icons {
-        flex-direction: column;   /* يخليهم عمودي */
-        align-items: center;      /* يحطهم في الوسط */
-        gap: 0.75rem;             /* مسافة بينهم */
+    .d-flex.gap-3 {
+        flex-direction: row;      /* خليه أفقي */
+        align-items: center;      /* يحطهم في الوسط عموديًا */
+        justify-content: center;  /* يحطهم في الوسط أفقيًا */
+        gap: 0.5rem;              /* مسافة مناسبة بينهم */
     }
 }
+
