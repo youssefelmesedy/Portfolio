@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeProfileCarousel();
     initializeNav();
     initializeScrollReveal();
-    initializeFormValidation();
     initializeSmoothScroll();
 });
 function initializeNav() {
@@ -185,118 +184,6 @@ function initializeScrollReveal() {
 
     elementsToReveal.forEach(element => {
         revealOnScroll.observe(element);
-    });
-}
-
-/**
- * FORM VALIDATION & SUBMISSION
- * Validates contact form with JavaScript
- */
-function initializeFormValidation() {
-    const form = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Remove previous message
-        formMessage.innerHTML = '';
-        formMessage.className = '';
-
-        // Get form fields
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const subject = document.getElementById('subject');
-        const message = document.getElementById('message');
-
-        // Validate fields
-        let isValid = true;
-
-        // Reset previous validation
-        [name, email, subject, message].forEach(field => {
-            field.classList.remove('is-invalid');
-        });
-
-        // Validate Name
-        if (!name.value.trim()) {
-            name.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // Validate Email
-        if (!validateEmail(email.value)) {
-            email.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // Validate Subject
-        if (!subject.value.trim()) {
-            subject.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // Validate Message
-        if (!message.value.trim() || message.value.trim().length < 10) {
-            message.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // If valid, show success message
-        if (isValid) {
-            // Show success message
-            formMessage.innerHTML = `
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fas fa-check-circle me-2"></i>
-                    <strong>Success!</strong> Your message has been sent. Thank you for reaching out!
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
-                </div>
-            `;
-
-            // Reset form
-            form.reset();
-
-            // Clear message after 5 seconds
-            setTimeout(() => {
-                formMessage.innerHTML = '';
-                formMessage.className = '';
-            }, 5000);
-
-            // Log form data (for demonstration)
-            console.log({
-                name: name.value,
-                email: email.value,
-                subject: subject.value,
-                message: message.value
-            });
-        } else {
-            // Show error message
-            formMessage.innerHTML = `
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fas fa-exclamation-circle me-2"></i>
-                    <strong>Error!</strong> Please fill in all fields correctly.
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
-                </div>
-            `;
-        }
-    });
-
-    // Real-time validation as user types
-    document.getElementById('email').addEventListener('blur', function() {
-        if (this.value && !validateEmail(this.value)) {
-            this.classList.add('is-invalid');
-        } else {
-            this.classList.remove('is-invalid');
-        }
-    });
-
-    document.getElementById('message').addEventListener('blur', function() {
-        if (this.value && this.value.trim().length < 10) {
-            this.classList.add('is-invalid');
-        } else {
-            this.classList.remove('is-invalid');
-        }
     });
 }
 
