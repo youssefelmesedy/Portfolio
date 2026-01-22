@@ -418,6 +418,8 @@ body {
     transform: translateY(-5px);
 }
 
+
+
 /* =====================================================
    CONTACT FORM
    ===================================================== */
@@ -621,5 +623,14 @@ footer a:hover { color: var(--primary-color); }
     .skill-card:hover, .project-card:hover {
         border-color: var(--primary-color);
         box-shadow: 0 0 0 2px var(--primary-color);
+    }
+}
+
+/* ================== FOLLOW ME ICONS MOBILE ================== */
+@media (max-width: 576px) {
+    .d-flex.gap-3.follow-icons {
+        flex-direction: column;   /* يخليهم عمودي */
+        align-items: center;      /* يحطهم في الوسط */
+        gap: 0.75rem;             /* مسافة بينهم */
     }
 }
