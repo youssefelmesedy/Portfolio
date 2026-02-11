@@ -109,6 +109,36 @@ body {
 .nav-link.active::after {
     width: 100%;
 }
+/* Mobile Navbar Fix */
+@media (max-width: 991.98px) {
+
+    .navbar-collapse {
+        background-color: #0f172a; /* نفس لون الخلفية */
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+        display: block;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+
+    .navbar-collapse {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+        padding: 1rem;
+        border-radius: 15px;
+        margin-top: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+}
+
 
 /* =====================================================
    HERO SECTION
@@ -595,11 +625,15 @@ footer a:hover { color: var(--primary-color); }
 
 .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* =====================================================
    SMOOTH TRANSITIONS
